@@ -1,13 +1,3 @@
-/*
-  // Objeto
-  const participant = {
-    name: 'João Guilherme',
-    email: 'joaoguilherme2411@gmail.com',
-    subscriptionDate: new Date(2024, 3, 2, 11, 53),
-    checkInDate: new Date(2024, 3, 10, 17, 14)
-  }
-*/
-
 // Array | Lista
 let participants = [
   {
@@ -88,6 +78,25 @@ const createNewParticipant = participants => {
       <td>${checkInDate}</td>
     </tr>
   `
+}
+
+const addParticipant = event => {
+  event.preventDefault()
+
+  const formData = new FormData(event.target) // Retorna um objeto contendo dados dos campos do form
+
+  const formDataName = formData.get('name')
+  const formDataEmail = formData.get('email')
+
+  const participant = {
+    name: formDataName,
+    email: formDataEmail,
+    subscriptionDate: new Date(),
+    checkInDate: null
+  }
+
+  participants = [participant, ...participants]
+  updateList(participants)
 }
 
 const updateList = participants => {
