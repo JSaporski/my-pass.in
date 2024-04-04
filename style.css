@@ -1,6 +1,10 @@
+/***** Font Import *****/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 /***** General Styles *****/
 :root {
   font-size: 62.5%;
+  --border-white-10-percent: 0.1rem solid rgba(255, 255, 255, 0.1);
 }
 
 * {
@@ -10,14 +14,167 @@
 }
 
 body {
+  width: min(62.6rem, calc(100% - 8rem));
+  margin-inline: auto;
+  padding-block: 6.4rem;
+  font-family: 'Roboto', sans-serif;
   font-size: 1.6rem;
+  background-color: #121214;
+}
+
+legend,
+caption {
+  margin-bottom: 1.6rem;
+  font-size: 1.6rem;
+  line-height: 140%;
+  text-align: left;
+  font-weight: 700;
+  color: #e1e1e6;
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/***** Form *****/
+form {
+  margin-block: 2rem;
+  padding-block: 2rem;
+  border-top: var(--border-white-10-percent);
+  border-bottom: var(--border-white-10-percent);
+}
+
+form .wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
+form fieldset {
+  border: none;
+}
+
+form .input-wrapper {
+  position: relative;
+  flex: 1 1 16rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  height: 3.8rem;
+  padding-inline: 1.2rem;
+  border: var(--border-white-10-percent);
+  border-radius: 1rem;
+}
+
+.input-wrapper label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0.1rem;
+  height: 0.1rem;
+  clip-path: inset(100%);
+}
+
+.input-wrapper input {
+  width: 100%;
+  font-family: inherit;
+  color: #fff;
+  background-color: transparent;
+  border: none;
+}
+
+.input-wrapper input:focus {
+  outline: 0;
+}
+
+.input-wrapper input::placeholder {
+  font-size: 1.4rem;
+  line-height: 2.1rem;
+  color: #c4c4cc;
+}
+
+form button {
+  flex-basis: 16.2rem;
+  height: 3.8rem;
+  font-family: inherit;
+  font-size: 1.2rem;
+  line-height: 2.4rem;
+  font-weight: 700;
+  color: #00292e;
+  text-transform: uppercase;
+  background-color: #f48f56;
+  border: 0.1rem solid #f48f56;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+}
+
+form button:hover {
+  color: #f48f56;
+  background-color: transparent;
 }
 
 /***** Subscribers Table *****/
 table {
   width: 100%;
+  border: var(--border-white-10-percent);
+  border-radius: 1rem;
+  border-spacing: 0;
 }
 
-thead {
+thead th,
+tbody td {
   text-align: left;
+  padding: 1.2rem 1.6rem;
+}
+
+tbody td {
+  border-top: var(--border-white-10-percent);
+}
+
+tbody td strong {
+  display: inline-block;
+  margin-bottom: 0.4rem;
+}
+
+thead th,
+tbody td strong {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+tbody td small {
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  color: #c4c4cc;
+}
+
+tbody td,
+tbody td {
+  font-size: 1.4rem;
+  color: #c4c4cc;
+}
+
+tbody td button {
+  font-family: inherit;
+  font-size: 1.4rem;
+  text-align: left;
+  color: #9ff9cc;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease-out;
+}
+
+tbody td button:hover {
+  opacity: 0.7;
+}
+
+/***** Responsive *****/
+@media (max-width: 602px) {
+  form button {
+    flex-basis: 100%;
+  }
 }
