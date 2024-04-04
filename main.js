@@ -152,5 +152,3 @@ const updateList = participants => {
 }
 
 updateList(participants)
-
-console.log(Date.now())
